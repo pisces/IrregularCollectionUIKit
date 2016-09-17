@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'IrregularUIKit_Example' do
+  pod 'IrregularUIKit', :path => '../'
+
+  target 'IrregularUIKit_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
