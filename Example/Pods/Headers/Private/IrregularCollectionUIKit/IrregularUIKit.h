@@ -1,1 +1,0 @@
-../../../../../IrregularCollectionUIKit/Classes/IrregularUIKit.h

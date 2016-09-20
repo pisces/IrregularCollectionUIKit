@@ -1,0 +1,1 @@
+../../../../../IrregularCollectionUIKit/Classes/PropertyManagedViewController.h

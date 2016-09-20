@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "IrregularCollectionViewLayout.h"
+#import "PropertyManagedViewController.h"
 
-@interface IrregularCollectionViewController : UIViewController <UICollectionViewDataSource, UICollectionViewDelegate, IrregularCollectionViewLayoutDelegate>
+@interface IrregularCollectionViewController : PropertyManagedViewController <UICollectionViewDataSource, UICollectionViewDelegate, IrregularCollectionViewLayoutDelegate>
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayout *collectionViewLayout;
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayoutInspector *layoutInspector;
 @property (nonnull, nonatomic) IBOutlet ASCollectionView *collectionView;
