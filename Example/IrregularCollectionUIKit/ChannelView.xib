@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChannelViewController" customModule="IrregularUIKit_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="channelProfileView" destination="gmH-7A-iw0" id="P6U-QH-X0m"/>
+                <outlet property="channelProfileViewHeight" destination="LSj-w1-nLL" id="yER-8o-QSS"/>
+                <outlet property="channelProfileViewTop" destination="hvf-ty-hVL" id="Yhj-df-L8p"/>
+                <outlet property="view" destination="Q61-Nx-KIl" id="c7U-kV-o8w"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Q61-Nx-KIl">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="channelProfileView.png" translatesAutoresizingMaskIntoConstraints="NO" id="gmH-7A-iw0">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="LSj-w1-nLL"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="gmH-7A-iw0" firstAttribute="width" secondItem="Q61-Nx-KIl" secondAttribute="width" id="1qy-xX-3jk"/>
+                <constraint firstItem="gmH-7A-iw0" firstAttribute="leading" secondItem="Q61-Nx-KIl" secondAttribute="leading" id="2QI-Zh-MhA"/>
+                <constraint firstItem="gmH-7A-iw0" firstAttribute="top" secondItem="Q61-Nx-KIl" secondAttribute="top" id="hvf-ty-hVL"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="channelProfileView.png" width="640" height="236"/>
+    </resources>
+</document>

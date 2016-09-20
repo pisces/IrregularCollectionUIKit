@@ -1,9 +1,10 @@
-use_frameworks!
+platform :ios, '7.0'
+inhibit_all_warnings!
 
-target 'IrregularUIKit_Example' do
-  pod 'IrregularUIKit', :path => '../'
+target 'IrregularCollectionUIKit_Example' do
+  pod 'IrregularCollectionUIKit', :path => '../'
 
-  target 'IrregularUIKit_Tests' do
+  target 'IrregularCollectionUIKit_Tests' do
     inherit! :search_paths
 
     

@@ -1,0 +1,1 @@
+../../../../../IrregularCollectionUIKit/Classes/IrregularLayoutAttributesManager.h

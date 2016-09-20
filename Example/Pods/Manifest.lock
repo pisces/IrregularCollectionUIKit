@@ -1,0 +1,33 @@
+PODS:
+  - AsyncDisplayKit (1.9.90):
+    - AsyncDisplayKit/PINRemoteImage (= 1.9.90)
+  - AsyncDisplayKit/ASDealloc2MainObject (1.9.90)
+  - AsyncDisplayKit/Core (1.9.90):
+    - AsyncDisplayKit/ASDealloc2MainObject
+  - AsyncDisplayKit/PINRemoteImage (1.9.90):
+    - AsyncDisplayKit/Core
+    - PINRemoteImage/iOS (>= 3.0.0-beta.3)
+  - IrregularCollectionUIKit (0.1.0):
+    - AsyncDisplayKit (~> 1.9.9)
+  - PINCache (3.0.1-beta)
+  - PINRemoteImage/Core (3.0.0-beta.3):
+    - PINCache (>= 3.0.0-beta)
+  - PINRemoteImage/iOS (3.0.0-beta.3):
+    - PINRemoteImage/Core
+
+DEPENDENCIES:
+  - IrregularCollectionUIKit (from `../`)
+
+EXTERNAL SOURCES:
+  IrregularCollectionUIKit:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AsyncDisplayKit: 926ded3ca3fb7026565e0e81f0e132fea4d3a6eb
+  IrregularCollectionUIKit: 24a84b1da3ad715bf804c63090c6d4eb119d828e
+  PINCache: 6911fe422a633e18b3d3ddf2bd4f0e55e36e2892
+  PINRemoteImage: 308731aa6534500e58fc211b9cc2bb7252df25ba
+
+PODFILE CHECKSUM: b0e59e397fa1e166c6bab01473d3c7aa05bce893
+
+COCOAPODS: 1.0.1

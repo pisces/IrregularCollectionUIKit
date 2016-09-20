@@ -1,6 +1,6 @@
 //
-//  IrregularUIKitTests.m
-//  IrregularUIKitTests
+//  IrregularCollectionUIKitTests.m
+//  IrregularCollectionUIKitTests
 //
 //  Created by Steve Kim on 09/17/2016.
 //  Copyright (c) 2016 Steve Kim. All rights reserved.
