@@ -9,6 +9,11 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## You can implement with collect view like this screenshot :)
+<p valign="top">
+<img src="screenshots/sh_001.png"/>
+</p>
+
 ## Requirements
 
 ## Installation

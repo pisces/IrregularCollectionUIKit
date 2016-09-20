@@ -84,8 +84,8 @@ class ChannelCollectionViewController: ASIrregularCollectionViewController {
     private func createRandomSizeItems(count: Int) -> [SampleContent] {
         var source: Array<SampleContent> = []
         for i in 0...count {
-            let indexOfHeight = Int(rand()%Int32(sizeArray.count))
-            let indexOfWidth = Int(rand()%Int32(sizeArray.count))
+            let indexOfHeight = Int(arc4random()%UInt32(sizeArray.count))
+            let indexOfWidth = Int(arc4random()%UInt32(sizeArray.count))
             let content = SampleContent(width: sizeArray[indexOfWidth], height: sizeArray[indexOfHeight])
             content.url = imageNames[i%imageNames.count]
             source.append(content)
@@ -130,7 +130,6 @@ class ChannelCollectionViewController: ASIrregularCollectionViewController {
 
 class DemoViewCellNode: ASCellNode {
     var imageNode: ASImageNode!
-//    var textNode: ASTextNode!
     
     var textAttributes: [String : AnyObject]! {
         return [
@@ -146,18 +145,8 @@ class DemoViewCellNode: ASCellNode {
         imageNode.image = UIImage(named: content.url!)
         imageNode.backgroundColor = UIColor.lightGrayColor()
         
-//        textNode = ASTextNode()
-//        textNode.attributedText = NSAttributedString(string: text, attributes: textAttributes)
-        
         self.addSubnode(imageNode)
-//        self.addSubnode(textNode)
     }
-    
-//    override func layout() {
-//        super.layout()
-//        
-//        imageNode.frame = self.bounds
-//    }
     
     override func layoutSpecThatFits(constrainedSize: ASSizeRange) -> ASLayoutSpec {
         return ASRelativeLayoutSpec .relativePositionLayoutSpecWithHorizontalPosition(ASRelativeLayoutSpecPosition.Start, verticalPosition: ASRelativeLayoutSpecPosition.Start, sizingOption: ASRelativeLayoutSpecSizingOption.Default, child: imageNode)

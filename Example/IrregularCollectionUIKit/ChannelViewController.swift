@@ -23,7 +23,7 @@ class ChannelViewController: UIViewController, UICollectionViewDelegate {
     private var maskLayer: CAShapeLayer {
         get {
             let maskLayer = CAShapeLayer()
-            let maskRect = CGRectMake(0, 0, self.view.width, channelProfileViewHeight.constant + channelProfileViewTop.constant)
+            let maskRect = CGRectMake(0, 0, CGRectGetWidth(self.view.frame), channelProfileViewHeight.constant + channelProfileViewTop.constant)
             maskLayer.path = CGPathCreateWithRect(maskRect, nil)
             return maskLayer
         }
@@ -61,7 +61,7 @@ class ChannelViewController: UIViewController, UICollectionViewDelegate {
 //        channelProfileView.transform = CGAffineTransformMakeScale(scale, scale)
         
         if let originContentOffset = originContentOffset {
-            if (scrollView.contentOffset.y-0.25) > -scrollView.contentInset.top && scrollView.contentOffset.y < scrollView.contentSize.height-scrollView.height {
+            if (scrollView.contentOffset.y-0.25) > -scrollView.contentInset.top && scrollView.contentOffset.y < scrollView.contentSize.height-CGRectGetHeight(scrollView.frame) {
                 let dy = originContentOffset.y - scrollView.contentOffset.y
                 
                 UIView.animateWithDuration(1.0, animations: {
