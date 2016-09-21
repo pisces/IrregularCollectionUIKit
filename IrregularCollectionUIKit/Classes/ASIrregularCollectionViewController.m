@@ -43,4 +43,9 @@
     [_collectionView reloadData];
 }
 
+- (void)reloadDataWithCompletion:(void (^)())completion {
+    [_layoutInspector preapareLayoutWithCollectionView:_collectionView];
+    [_collectionView reloadDataWithCompletion:completion];
+}
+
 @end

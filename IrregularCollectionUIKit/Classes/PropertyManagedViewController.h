@@ -14,5 +14,4 @@
 - (void)commitProperties;
 - (void)initProperties;
 - (void)invalidateProperties;
-- (void)validateProperties;
 @end

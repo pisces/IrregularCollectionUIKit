@@ -12,7 +12,6 @@
 
 @interface IrregularCollectionViewController : PropertyManagedViewController <UICollectionViewDataSource, UICollectionViewDelegate, IrregularCollectionViewLayoutDelegate>
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayout *collectionViewLayout;
-@property (nonnull, nonatomic, readonly) IrregularCollectionViewLayoutInspector *layoutInspector;
-@property (nonnull, nonatomic) IBOutlet ASCollectionView *collectionView;
+@property (nonnull, nonatomic) IBOutlet UICollectionView *collectionView;
 - (void)reloadData;
 @end
