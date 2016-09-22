@@ -136,6 +136,12 @@
 
 #pragma mark - ASCollectionViewLayoutInspecting protocol
 
+- (void)didChangeCollectionViewDelegate:(id<ASCollectionDelegate>)delegate {
+}
+
+- (void)didChangeCollectionViewDataSource:(id<ASCollectionDataSource>)dataSource {
+}
+
 - (ASSizeRange)collectionView:(ASCollectionView *)collectionView constrainedSizeForNodeAtIndexPath:(NSIndexPath *)indexPath {
     IrregularCollectionViewLayout *layout = (IrregularCollectionViewLayout *) collectionView.collectionViewLayout;
     return ASSizeRangeMake(CGSizeZero, [layout itemSizeAtIndexPath:indexPath]);
