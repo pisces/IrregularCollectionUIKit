@@ -33,6 +33,27 @@
     _collectionView.dataSource = self;
 }
 
+
+- (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {
+    [self insertItemsAtIndexPaths:indexPaths completion:nil];
+}
+
+- (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths completion:(void (^)(void))completion {
+    [_collectionView performBatchUpdates:^{
+        [_collectionView insertItemsAtIndexPaths:indexPaths];
+        
+        NSInteger previousRow = indexPaths.firstObject.row - 1;
+        if (previousRow > -1) {
+            NSIndexPath *previousIndexPath = [NSIndexPath indexPathForRow:previousRow inSection:indexPaths.firstObject.section];
+            [_collectionView reloadItemsAtIndexPaths:@[previousIndexPath]];
+        }
+    } completion:^(BOOL finished) {
+        if (completion) {
+            completion();
+        }
+    }];
+}
+
 - (void)reloadData {
     [_collectionView reloadData];
 }

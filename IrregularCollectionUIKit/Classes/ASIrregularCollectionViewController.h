@@ -15,6 +15,8 @@
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayout *collectionViewLayout;
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayoutInspector *layoutInspector;
 @property (nonnull, nonatomic) IBOutlet ASCollectionView *collectionView;
+- (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths;
+- (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> * _Nonnull)indexPaths completion:(void (^_Nullable)(void))completion;
 - (void)reloadData;
-- (void)reloadDataWithCompletion:(void (^)())completion;
+- (void)reloadDataWithCompletion:(void (^_Nullable)())completion;
 @end
