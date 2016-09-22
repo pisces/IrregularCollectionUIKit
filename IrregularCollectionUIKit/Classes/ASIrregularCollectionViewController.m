@@ -12,11 +12,6 @@
 
 #pragma mark - Overridden: UIViewController
 
-- (void)dealloc {
-    _collectionView.asyncDataSource = nil;
-    _collectionView.asyncDelegate = nil;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
