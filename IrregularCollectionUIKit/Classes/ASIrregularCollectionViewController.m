@@ -45,7 +45,7 @@
         NSInteger previousRow = indexPaths.firstObject.row - 1;
         if (previousRow > -1) {
             NSIndexPath *previousIndexPath = [NSIndexPath indexPathForRow:previousRow inSection:indexPaths.firstObject.section];
-            [_collectionView reloadItemsAtIndexPaths:@[previousIndexPath]];
+            [_collectionView reloadItemsAtIndexPaths:@[previousIndexPath, indexPaths.firstObject]];
         }
     } completion:^(BOOL finished) {
         if (completion) {
