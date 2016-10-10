@@ -155,11 +155,11 @@
                 multiply = rate > 1.34 ? 2 : 1;
             } else {
                 CGFloat rate = itemSize.height / itemSize.width;
-                if (rate > 1.5) {
+                if (rate > 1.3) {
                     multiply = 1;
                     wasVertical = YES;
                 } else {
-                    multiply = rate < 1.34 ? 2 : 1;
+                    multiply = 1;
                 }
             }
             
