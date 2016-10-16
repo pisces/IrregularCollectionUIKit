@@ -39,13 +39,22 @@
 }
 
 - (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths completion:(void (^)(void))completion {
+    NSMutableArray<NSIndexPath *> *reloadIndexPaths = @[[NSIndexPath indexPathForRow:indexPaths.firstObject.row - 1 inSection:indexPaths.firstObject.section],
+                                                        [NSIndexPath indexPathForRow:indexPaths.lastObject.row + 1 inSection:indexPaths.lastObject.section],
+                                                        [NSIndexPath indexPathForRow:indexPaths.lastObject.row + 2 inSection:indexPaths.lastObject.section]
+                                                        ];
+    
+    [reloadIndexPaths enumerateObjectsUsingBlock:^(NSIndexPath * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.row < 0 || obj.row >= [_collectionView numberOfItemsInSection:indexPaths.lastObject.section]) {
+            [reloadIndexPaths removeObject:obj];
+        }
+    }];
+    
     [_collectionView performBatchUpdates:^{
         [_collectionView insertItemsAtIndexPaths:indexPaths];
         
-        NSInteger previousRow = indexPaths.firstObject.row - 1;
-        if (previousRow > -1) {
-            NSIndexPath *previousIndexPath = [NSIndexPath indexPathForRow:previousRow inSection:indexPaths.firstObject.section];
-            [_collectionView reloadItemsAtIndexPaths:@[previousIndexPath]];
+        if (reloadIndexPaths.count > 0) {
+            [_collectionView reloadItemsAtIndexPaths:reloadIndexPaths];
         }
     } completion:^(BOOL finished) {
         if (completion) {

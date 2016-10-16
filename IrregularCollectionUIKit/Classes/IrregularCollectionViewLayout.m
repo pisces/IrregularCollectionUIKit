@@ -108,6 +108,10 @@
     return CGSizeMake([self widthForSection:section], _footerHeight);
 }
 
+- (CGFloat)widthForSection:(NSUInteger)section {
+    return self.collectionView.bounds.size.width - _sectionInset.left - _sectionInset.right;
+}
+
 #pragma mark - Private methods
 
 - (CGSize)itemSizeAtIndexPath:(NSIndexPath *)indexPath {
@@ -116,10 +120,6 @@
         return CGSizeZero;
     }
     return _attributesManager.sectionItemFrames[indexPath.section][indexPath.item].CGRectValue.size;
-}
-
-- (CGFloat)widthForSection:(NSUInteger)section {
-    return self.collectionView.bounds.size.width - _sectionInset.left - _sectionInset.right;
 }
 
 @end
