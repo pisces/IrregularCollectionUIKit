@@ -38,6 +38,10 @@
     [_collectionView performBatchUpdates:updates completion:completion];
 }
 
+- (void)prepareLayout {
+    [_layoutInspector preapareLayoutWithCollectionView:_collectionView];
+}
+
 - (void)reloadData {
     [_layoutInspector preapareLayoutWithCollectionView:_collectionView];
     [_collectionView reloadData];
