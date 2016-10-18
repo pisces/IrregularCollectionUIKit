@@ -154,7 +154,6 @@
         frame = rect;
         map(indexPath, heightChanged, rect);
         columnIndex += columnIndexIncrease;
-        NSLog(@"indexPath -> %zd, %@", indexPath.row, NSStringFromCGRect(frame));
     };
     
     for (NSInteger i=0; i<numberOfItems; i++) {
@@ -178,8 +177,7 @@
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i+j inSection:section];
                         CGSize itemSize = [layout.delegate collectionView:layout.collectionView layout:layout originalItemSizeAtIndexPath:indexPath];
                         CGFloat heightRate = standardItemSize.height / itemSize.height;
-                        CGFloat calculatedWidth = itemSize.width * heightRate;
-                        itemWidthSum += calculatedWidth;
+                        itemWidthSum += (itemSize.width * heightRate);
                     }
                 }
                 
@@ -193,8 +191,7 @@
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i+j inSection:section];
                         CGSize itemSize = [layout.delegate collectionView:layout.collectionView layout:layout originalItemSizeAtIndexPath:indexPath];
                         CGFloat heightRate = standardItemSize.height / itemSize.height;
-                        CGFloat calculatedWidth = itemSize.width * heightRate;
-                        CGFloat widthRate = calculatedWidth / itemWidthSum;
+                        CGFloat widthRate = (itemSize.width * heightRate) / itemWidthSum;
                         CGFloat itemWidth = ceilf(viewWidth * widthRate);
                         columnHeight = MIN(columnHeight, ceilf((itemWidth * itemSize.height) / itemSize.width));
                         
@@ -205,8 +202,7 @@
             }
         } else {
             CGFloat heightRate = standardItemSize.height / currentItemSize.height;
-            CGFloat calculatedWidth = currentItemSize.width * heightRate;
-            CGFloat widthRate = calculatedWidth / itemWidthSum;
+            CGFloat widthRate = (currentItemSize.width * heightRate) / itemWidthSum;
             CGFloat currentItemWidth = ceilf(viewWidth * widthRate);
             setFrame(CGRectMake(xOffset, yOffset, currentItemWidth, columnHeight), currentIndexPath, 1, NO);
         }
