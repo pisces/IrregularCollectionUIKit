@@ -15,6 +15,8 @@
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayout *collectionViewLayout;
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayoutInspector *layoutInspector;
 @property (nonnull, nonatomic) IBOutlet ASCollectionView *collectionView;
+- (void)performBatchUpdates:(void (^_Nullable)())updates completion:(void (^_Nullable)(BOOL))completion;
+- (void)prepareLayout;
 - (void)reloadData;
-- (void)reloadDataWithCompletion:(void (^)())completion;
+- (void)reloadDataWithCompletion:(void (^_Nullable)())completion;
 @end

@@ -25,6 +25,7 @@
 - (CGFloat)columnWidthForSection:(NSUInteger)section;
 - (CGSize)headerSizeForSection:(NSInteger)section;
 - (CGSize)footerSizeForSection:(NSInteger)section;
+- (CGFloat)widthForSection:(NSUInteger)section;
 @end
 
 @protocol IrregularCollectionViewLayoutDelegate <ASCollectionViewDelegate>
