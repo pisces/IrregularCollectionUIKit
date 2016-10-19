@@ -32,6 +32,6 @@ TODO: Add long description of the pod here.
 
   s.source_files = 'IrregularCollectionUIKit/Classes/**/*'
   
-  s.dependency 'AsyncDisplayKit', '~> 1.9.91'
+  s.dependency 'AsyncDisplayKit', '~> 1.9.90'
   
 end
