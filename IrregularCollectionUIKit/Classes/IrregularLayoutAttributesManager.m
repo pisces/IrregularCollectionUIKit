@@ -74,14 +74,16 @@
             
             // items
             NSMutableArray<UICollectionViewLayoutAttributes *> *itemAttributes = [NSMutableArray array];
+            NSMutableArray<NSValue *> *itemFrames = [NSMutableArray array];
             
-            [self columnsWithSection:section itemCount:^NSInteger{
+            [self columnsWithSection:section itemCount:^NSInteger {
                 return [layout.collectionView numberOfItemsInSection:section];
             } map:^(NSIndexPath *indexPath, BOOL heightChanged, CGRect frame) {
                 UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
                 attributes.frame = frame;
                 
                 [itemAttributes addObject:attributes];
+                [itemFrames addObject:[NSValue valueWithCGRect:frame]];
                 [_allItemAttributes addObject:attributes];
 
                 if (heightChanged) {
@@ -90,6 +92,7 @@
             }];
             
             [_sectionItemAttributes addObject:itemAttributes];
+            [_sectionItemFrames addObject:itemFrames];
             
             // footer
             if (layout.footerHeight > 0) {

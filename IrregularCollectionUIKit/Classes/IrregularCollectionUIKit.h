@@ -11,5 +11,6 @@
 
 #import "ASIrregularCollectionViewController.h"
 #import "IrregularCollectionViewController.h"
+#import "IrregularLayoutAttributesManager.h"
 
 #endif /* IrregularCollectionUIKit_h */
