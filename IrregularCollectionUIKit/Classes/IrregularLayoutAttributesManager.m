@@ -145,7 +145,7 @@
     NSInteger numberOfItems = itemCount();
     CGFloat itemWidthSum = 0;
     CGFloat columnHeight = 0;
-    CGFloat viewWidth = [layout widthForSection:section];
+    CGFloat viewWidth = 0;
     CGFloat xOffset = layout.sectionInset.left;
     CGFloat yOffset = _columnHeights.lastObject.floatValue;
     CGSize standardItemSize;
@@ -168,10 +168,12 @@
             
             if (!wasFullWidth && rate >= 1.2) {
                 wasFullWidth = YES;
+                viewWidth = [layout widthForSection:section];
                 columnHeight = ceilf(viewWidth * currentItemSize.height / currentItemSize.width);
                 setFrame(CGRectMake(xOffset, yOffset, viewWidth, columnHeight), currentIndexPath, layout.numberOfColumns, YES);
             } else {
                 wasFullWidth = NO;
+                viewWidth = [layout widthForSection:section] - ((layout.numberOfColumns - 1) * layout.columnSpacing);
                 standardItemSize = currentItemSize;
                 itemWidthSum = currentItemSize.width;
                 
