@@ -36,10 +36,16 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
     _isViewAppeared = YES;
+    
+    [self invalidateProperties];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
