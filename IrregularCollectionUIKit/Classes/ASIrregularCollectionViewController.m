@@ -17,20 +17,15 @@
     
     _collectionViewLayout = [[IrregularCollectionViewLayout alloc] initWithDelegate:self];
     _layoutInspector = [[IrregularCollectionViewLayoutInspector alloc] init];
-    
-    if ([self.view isKindOfClass:[ASCollectionView class]]) {
-        _collectionView = (ASCollectionView *) self.view;
-    } else {
-        _collectionView = [[ASCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_collectionViewLayout];
-        self.view = _collectionView;
-    }
-    
+    _collectionView = [[ASCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:_collectionViewLayout];
     _collectionView.asyncDelegate = self;
     _collectionView.asyncDataSource = self;
+    _collectionView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     _collectionView.layoutInspector = _layoutInspector;
     
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionHeader];
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionFooter];
+    [self.view addSubview:_collectionView];
 }
 
 - (void)performBatchUpdates:(void (^)())updates completion:(void (^)(BOOL))completion {
