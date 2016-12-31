@@ -12,6 +12,11 @@
 
 #pragma mark - Overridden: UIViewController
 
+- (void)dealloc {
+    _collectionView.asyncDataSource = nil;
+    _collectionView.asyncDelegate = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -21,6 +26,7 @@
     _collectionView.asyncDelegate = self;
     _collectionView.asyncDataSource = self;
     _collectionView.layoutInspector = _layoutInspector;
+    _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionHeader];
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionFooter];

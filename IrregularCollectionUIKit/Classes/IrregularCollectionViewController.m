@@ -25,6 +25,7 @@
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_collectionViewLayout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
+    _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.view addSubview:_collectionView];
     
