@@ -12,25 +12,32 @@
 
 #pragma mark - Overridden: UIViewController
 
+- (void)dealloc {
+    _collectionView.asyncDataSource = nil;
+    _collectionView.asyncDelegate = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     _collectionViewLayout = [[IrregularCollectionViewLayout alloc] initWithDelegate:self];
     _layoutInspector = [[IrregularCollectionViewLayoutInspector alloc] init];
-    
-    if ([self.view isKindOfClass:[ASCollectionView class]]) {
-        _collectionView = (ASCollectionView *) self.view;
-    } else {
-        _collectionView = [[ASCollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_collectionViewLayout];
-        self.view = _collectionView;
-    }
-    
+    _collectionView = [[ASCollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:_collectionViewLayout];
     _collectionView.asyncDelegate = self;
     _collectionView.asyncDataSource = self;
     _collectionView.layoutInspector = _layoutInspector;
+    _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionHeader];
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionFooter];
+    [self.view addSubview:_collectionView];
+    
+    NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
+    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
+    NSLayoutConstraint *trailing = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0];
+    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
+    
+    [self.view addConstraints:@[leading, top, trailing, bottom]];
 }
 
 - (void)performBatchUpdates:(void (^)())updates completion:(void (^)(BOOL))completion {
