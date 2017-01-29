@@ -182,8 +182,8 @@
             } else {
                 wasFullWidth = NO;
                 viewWidth = i >= numberOfItems - 1 ? width : width - ((layout.numberOfColumns - 1) * layout.columnSpacing);
-                standardItemSize = currentItemSize;
                 currentItemSize = adjustedItemSize(currentItemSize);
+                standardItemSize = currentItemSize;
                 itemWidthSum = currentItemSize.width;
                 
                 for (NSInteger j=1; j<layout.numberOfColumns; j++) {
