@@ -160,10 +160,11 @@
         columnIndex += columnIndexIncrease;
     };
     
-    void (^adjustItemSize)(CGSize) = ^void (CGSize size) {
-        if (size.width/size.height > 4/3) {
-            size.width = 4 * size.height / 3;
+    CGSize (^adjustedItemSize)(CGSize) = ^CGSize (CGSize size) {
+        if (size.width/size.height > 4.0/3.0) {
+            return CGSizeMake(4.0 * size.height / 3.0, size.height);
         }
+        return size;
     };
     
     for (NSInteger i=0; i<numberOfItems; i++) {
@@ -182,18 +183,13 @@
                 wasFullWidth = NO;
                 viewWidth = i >= numberOfItems - 1 ? width : width - ((layout.numberOfColumns - 1) * layout.columnSpacing);
                 standardItemSize = currentItemSize;
-                
-                adjustItemSize(currentItemSize);
-                
+                currentItemSize = adjustedItemSize(currentItemSize);
                 itemWidthSum = currentItemSize.width;
                 
                 for (NSInteger j=1; j<layout.numberOfColumns; j++) {
                     if (i+j < numberOfItems) {
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i+j inSection:section];
-                        CGSize itemSize = [layout.delegate collectionView:layout.collectionView layout:layout originalItemSizeAtIndexPath:indexPath];
-                        
-                        adjustItemSize(itemSize);
-                        
+                        CGSize itemSize = adjustedItemSize([layout.delegate collectionView:layout.collectionView layout:layout originalItemSizeAtIndexPath:indexPath]);
                         CGFloat heightRate = standardItemSize.height / itemSize.height;
                         itemWidthSum += (itemSize.width * heightRate);
                     }
@@ -207,10 +203,7 @@
                 for (NSInteger j=1; j<layout.numberOfColumns; j++) {
                     if (i+j < numberOfItems) {
                         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i+j inSection:section];
-                        CGSize itemSize = [layout.delegate collectionView:layout.collectionView layout:layout originalItemSizeAtIndexPath:indexPath];
-                        
-                        adjustItemSize(itemSize);
-                        
+                        CGSize itemSize = adjustedItemSize([layout.delegate collectionView:layout.collectionView layout:layout originalItemSizeAtIndexPath:indexPath]);
                         CGFloat heightRate = standardItemSize.height / itemSize.height;
                         CGFloat widthRate = (itemSize.width * heightRate) / itemWidthSum;
                         CGFloat itemWidth = ceilf(viewWidth * widthRate);
@@ -221,8 +214,7 @@
                 setFrame(CGRectMake(xOffset, yOffset, currentItemWidth, columnHeight), currentIndexPath, 1, YES);
             }
         } else {
-            adjustItemSize(currentItemSize);
-            
+            currentItemSize = adjustedItemSize(currentItemSize);
             CGFloat heightRate = standardItemSize.height / currentItemSize.height;
             CGFloat widthRate = (currentItemSize.width * heightRate) / itemWidthSum;
             CGFloat currentItemWidth = ceilf(viewWidth * widthRate);
