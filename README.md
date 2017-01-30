@@ -9,7 +9,7 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-## You can implement with collection view like this screenshot :)
+## You can implement layout of collection view like this screenshot :)
 <p valign="top">
 <img src="screenshots/sh_002.png" width="320"/>
 <img src="screenshots/sh_003.png" width="320"/>
