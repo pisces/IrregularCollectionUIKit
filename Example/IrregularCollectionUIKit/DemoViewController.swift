@@ -12,8 +12,6 @@ class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let controller = ChannelViewController(nibName: "ChannelView", bundle: NSBundle.mainBundle())
-        
-        self.presentViewController(controller, animated: false, completion: nil)
+        present(SampleASCollectionViewController(), animated: false, completion: nil)
     }
 }

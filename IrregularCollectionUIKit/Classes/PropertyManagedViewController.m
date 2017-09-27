@@ -18,21 +18,17 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    
     if (self) {
         [self initProperties];
     }
-    
     return self;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    
     if (self) {
         [self initProperties];
     }
-    
     return self;
 }
 
@@ -56,6 +52,9 @@
 }
 
 #pragma mark - Public methods
+
+- (void)commitProperties {
+}
 
 - (void)initProperties {
     _isFirstViewAppearence = YES;

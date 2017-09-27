@@ -1,6 +1,6 @@
 {
   "name": "IrregularCollectionUIKit",
-  "version": "0.1.0",
+  "version": "0.1.23",
   "summary": "A short description of IrregularCollectionUIKit.",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/pisces/IrregularCollectionUIKit",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/pisces/IrregularCollectionUIKit.git",
-    "tag": "0.1.0"
+    "tag": "0.1.23"
   },
   "platforms": {
     "ios": "7.0"
@@ -21,7 +21,7 @@
   "source_files": "IrregularCollectionUIKit/Classes/**/*",
   "dependencies": {
     "AsyncDisplayKit": [
-      "~> 1.9.9"
+      "~> 1.9.90"
     ]
   }
 }
