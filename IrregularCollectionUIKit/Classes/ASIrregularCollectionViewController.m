@@ -10,7 +10,7 @@
 
 @implementation ASIrregularCollectionViewController
 
-#pragma mark - Overridden: UIViewController
+#pragma mark - Overridden: PropertyManagedViewController
 
 - (void)dealloc {
     _collectionView.asyncDataSource = nil;
@@ -26,22 +26,20 @@
     _collectionView.asyncDelegate = self;
     _collectionView.asyncDataSource = self;
     _collectionView.layoutInspector = _layoutInspector;
-//    _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    
     self.view = _collectionView;
     
+    [_collectionView tuningParametersForRangeMode:ASLayoutRangeModeVisibleOnly rangeType:ASLayoutRangeTypeFetchData];
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionHeader];
     [_collectionView registerSupplementaryNodeOfKind:UICollectionElementKindSectionFooter];
-//    [self.view addSubview:_collectionView];
-    
-//    NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
-//    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-//    NSLayoutConstraint *trailing = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0];
-//    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-//    
-//    [self.view addConstraints:@[leading, top, trailing, bottom]];
 }
+
+#pragma mark - ASCollection data source
+
+- (ASCellNode *)collectionView:(ASCollectionView *)collectionView nodeForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
+    return [ASCellNode new];
+}
+
+#pragma mark - Public methods
 
 - (void)performBatchUpdates:(void (^)())updates completion:(void (^)(BOOL))completion {
     [_layoutInspector preapareLayoutWithCollectionView:_collectionView];
@@ -54,7 +52,7 @@
 
 - (void)reloadData {
     [_layoutInspector preapareLayoutWithCollectionView:_collectionView];
-    [_collectionView reloadData];
+    [_collectionView reloadDataImmediately];
 }
 
 - (void)reloadDataWithCompletion:(void (^)())completion {

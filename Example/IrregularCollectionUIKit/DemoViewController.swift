@@ -11,7 +11,11 @@ import UIKit
 class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        present(SampleASCollectionViewController(), animated: false, completion: nil)
+        let navigationController = UINavigationController(rootViewController: SampleASCollectionViewController())
+        present(navigationController, animated: true, completion: nil)
     }
 }

@@ -21,20 +21,10 @@
     [super viewDidLoad];
     
     _collectionViewLayout = [[IrregularCollectionViewLayout alloc] initWithDelegate:self];
-    
     _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:_collectionViewLayout];
     _collectionView.delegate = self;
     _collectionView.dataSource = self;
-    _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [self.view addSubview:_collectionView];
-    
-    NSLayoutConstraint *leading = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0];
-    NSLayoutConstraint *top = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1.0 constant:0];
-    NSLayoutConstraint *trailing = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0];
-    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:_collectionView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0];
-    
-    [self.view addConstraints:@[leading, top, trailing, bottom]];
+    self.view = _collectionView;
 }
 
 - (void)insertItemsAtIndexPaths:(NSArray<NSIndexPath *> *)indexPaths {

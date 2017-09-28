@@ -23,8 +23,8 @@
     if (self) {
         _columnSpacing = 1;
         _numberOfColumns = 3;
-        _headerHeight = 50;
-        _footerHeight = 50;
+        _headerHeight = 0;
+        _footerHeight = 0;
         _sectionInset = UIEdgeInsetsZero;
         _attributesManager = [[IrregularLayoutAttributesManager alloc] initWithLayout:self];
     }
