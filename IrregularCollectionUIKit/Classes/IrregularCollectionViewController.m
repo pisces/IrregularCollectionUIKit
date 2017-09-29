@@ -39,7 +39,7 @@
     return 0;
 }
 
-- (UICollectionViewCell *)cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
 

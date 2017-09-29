@@ -15,7 +15,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 <img src="screenshots/sh_003.png" width="320"/>
 </p>
 
-### To implement collection view with the class IrregularCollectionViewController using UIKit
+### Implementation for collection view with the class IrregularCollectionViewController using UIKit
 ```Swift
 class DemoViewController: IrregularCollectionViewController {
     override func viewDidLoad() {
@@ -44,8 +44,20 @@ class DemoViewController: IrregularCollectionViewController {
     }
 }
 ```
+### Implementation for collection view with IrregularCollectionViewLayout
+```Swift
+let layout = IrregularCollectionViewLayout()
+layout.delegate = self
+layout.columnSpacing = 1
+layout.numberOfColumns = 3
+layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1)
+        
+let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+```
 
 ## Requirements
+
+iOS Deployment Target 8.0 higher
 
 ## Installation
 
@@ -56,9 +68,28 @@ it, simply add the following line to your Podfile:
 pod "IrregularCollectionUIKit"
 ```
 
+### Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "pisces/IrregularCollectionUIKit" ~> 2.0.0
+```
+
+Run `carthage update` to build the framework and drag the built `IrregularCollectionUIKit.framework` into your Xcode project.
+
 ## Author
 
-Steve Kim, pisces@retrica.co
+Steve Kim, hh963103@gmail.com
 
 ## License
 
