@@ -23,12 +23,18 @@ class DemoViewController: IrregularCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "IrregularCollectionViewController"
-        edgesForExtendedLayout = .top
-        collectionViewLayout.columnSpacing = 1
-        collectionViewLayout.numberOfColumns = 3
-        collectionViewLayout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1)
+        let layout = IrregularCollectionViewLayout()
+        layout.delegate = self
+        layout.columnSpacing = 1
+        layout.numberOfColumns = 3
+        layout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1)
+        
+        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+        collectionView.dataSource = self
+        collectionView.delegate = self
         collectionView.register(SampleViewCell.self, forCellWithReuseIdentifier: "SampleViewCell")
+        
+        view.addSubview(collectionView)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
