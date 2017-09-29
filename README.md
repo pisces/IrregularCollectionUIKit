@@ -60,7 +60,7 @@ let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: 
 
 ## Requirements
 
-iOS Deployment Target 8.0 higher
+iOS Deployment Target 7.0 higher
 
 ## Installation
 
