@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IrregularCollectionUIKit'
-  s.version          = '0.1.23'
+  s.version          = '2.0.0'
   s.summary          = 'A short description of IrregularCollectionUIKit.'
 
 # This description is used to generate tags and improve search results.
@@ -24,14 +24,12 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/pisces/IrregularCollectionUIKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Steve Kim' => 'pisces@retrica.co' }
+  s.author           = { 'Steve Kim' => 'hh963103@gmail.com' }
   s.source           = { :git => 'https://github.com/pisces/IrregularCollectionUIKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '7.0'
 
   s.source_files = 'IrregularCollectionUIKit/Classes/**/*'
-  
-  s.dependency 'AsyncDisplayKit', '~> 1.9.90'
   
 end

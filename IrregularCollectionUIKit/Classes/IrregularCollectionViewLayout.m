@@ -1,6 +1,6 @@
 //
 //  IrregularCollectionViewLayout.m
-//  Pods
+//  IrregularCollectionUIKit
 //
 //  Created by pisces on 9/18/16.
 //
@@ -9,55 +9,35 @@
 #import "IrregularCollectionViewLayout.h"
 #import "IrregularLayoutAttributesManager.h"
 
-@interface IrregularCollectionViewLayout ()
-@property (nullable, nonatomic, readonly) ASCollectionView *asCollectionView;
-@end
-
 @implementation IrregularCollectionViewLayout
 
 #pragma mark - Constructor
 
 - (instancetype _Nonnull)init {
     self = [super init];
-    
     if (self) {
         _columnSpacing = 1;
         _numberOfColumns = 3;
         _headerHeight = 0;
         _footerHeight = 0;
         _sectionInset = UIEdgeInsetsZero;
-        _attributesManager = [[IrregularLayoutAttributesManager alloc] initWithLayout:self];
+        _attributesManager = [self createAttributesManager];
     }
-    
     return self;
 }
 
 - (instancetype _Nonnull)initWithDelegate:(id<IrregularCollectionViewLayoutDelegate>)delegate {
     self = [self init];
-    
     if (self) {
         _delegate = delegate;
     }
-    
     return self;
-}
-
-#pragma mark - Properties
-
-- (ASCollectionView *)asCollectionView {
-    return (ASCollectionView *) self.collectionView;
 }
 
 #pragma mark - Overridden: UICollectionViewLayout
 
 - (CGSize)collectionViewContentSize {
     return CGSizeMake(self.collectionView.bounds.size.width, _attributesManager.columnHeights.lastObject.floatValue);
-}
-
-- (void)prepareLayout {
-    [super prepareLayout];
-    
-    [_attributesManager prepareAttributes];
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
@@ -96,6 +76,10 @@
 
 #pragma mark - Public methods
 
+- (IrregularLayoutAttributesManager *)createAttributesManager {
+    return [[IrregularLayoutAttributesManager alloc] initWithLayout:self];
+}
+
 - (CGFloat)columnWidthForSection:(NSUInteger)section {
     return ([self widthForSection:section] - ((_numberOfColumns - 1) * _columnSpacing)) / _numberOfColumns;
 }
@@ -108,12 +92,6 @@
     return CGSizeMake([self widthForSection:section], _footerHeight);
 }
 
-- (CGFloat)widthForSection:(NSUInteger)section {
-    return self.collectionView.bounds.size.width - _sectionInset.left - _sectionInset.right;
-}
-
-#pragma mark - Private methods
-
 - (CGSize)itemSizeAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section >= _attributesManager.sectionItemFrames.count ||
         indexPath.item >= _attributesManager.sectionItemFrames[indexPath.section].count) {
@@ -122,59 +100,13 @@
     return _attributesManager.sectionItemFrames[indexPath.section][indexPath.item].CGRectValue.size;
 }
 
-@end
-
-@implementation IrregularCollectionViewLayoutInspector
-
-#pragma mark - Public methods
-
-- (void)preapareLayoutWithCollectionView:(ASCollectionView *)collectionView {
-    IrregularCollectionViewLayout *layout = (IrregularCollectionViewLayout *) collectionView.collectionViewLayout;
-    
-    [layout.attributesManager prepareFrames];
+- (void)prepareLayout {
+    [self.attributesManager prepareAttributes];
+    [self.attributesManager prepareFrames];
 }
 
-#pragma mark - ASCollectionViewLayoutInspecting protocol
-
-- (void)didChangeCollectionViewDelegate:(id<ASCollectionDelegate>)delegate {
-}
-
-- (void)didChangeCollectionViewDataSource:(id<ASCollectionDataSource>)dataSource {
-}
-
-- (ASSizeRange)collectionView:(ASCollectionView *)collectionView constrainedSizeForNodeAtIndexPath:(NSIndexPath *)indexPath {
-    IrregularCollectionViewLayout *layout = (IrregularCollectionViewLayout *) collectionView.collectionViewLayout;
-    return ASSizeRangeMake(CGSizeZero, [layout itemSizeAtIndexPath:indexPath]);
-}
-
-- (ASSizeRange)collectionView:(ASCollectionView *)collectionView constrainedSizeForSupplementaryNodeOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    IrregularCollectionViewLayout *layout = (IrregularCollectionViewLayout *) collectionView.collectionViewLayout;
-    
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        return ASSizeRangeMake(CGSizeZero, [layout headerSizeForSection:indexPath.section]);
-    }
-    if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        return ASSizeRangeMake(CGSizeZero, [layout footerSizeForSection:indexPath.section]);
-    }
-    return ASSizeRangeMake(CGSizeZero, CGSizeZero);
-}
-
-- (NSUInteger)collectionView:(ASCollectionView *)collectionView numberOfSectionsForSupplementaryNodeOfKind:(NSString *)kind {
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader] ||
-        [kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        return [collectionView.asyncDataSource numberOfSectionsInCollectionView:collectionView];
-    } else {
-        return 0;
-    }
-}
-
-- (NSUInteger)collectionView:(ASCollectionView *)collectionView supplementaryNodesOfKind:(NSString *)kind inSection:(NSUInteger)section {
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader] ||
-        [kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        return 1;
-    } else {
-        return 0;
-    }
+- (CGFloat)widthForSection:(NSUInteger)section {
+    return self.collectionView.bounds.size.width - _sectionInset.left - _sectionInset.right;
 }
 
 @end
