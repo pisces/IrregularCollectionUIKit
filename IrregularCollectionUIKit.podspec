@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'IrregularCollectionUIKit'
   s.version          = '2.0.0'
-  s.summary          = 'A short description of IrregularCollectionUIKit.'
+  s.summary          = 'Irregular Collection View Layout and Controller.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,10 +17,7 @@ Pod::Spec.new do |s|
 #   * Write the description between the DESC delimiters below.
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
+  s.description      = 'Irregular Collection View Layout and Controller'
   s.homepage         = 'https://github.com/pisces/IrregularCollectionUIKit'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
