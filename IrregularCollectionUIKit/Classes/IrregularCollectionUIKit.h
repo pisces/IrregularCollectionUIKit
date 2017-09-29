@@ -10,5 +10,6 @@
 #define IrregularCollectionUIKit_h
 
 #import "IrregularCollectionViewController.h"
+#import "IrregularCollectionViewLayout.h"
 
 #endif /* IrregularCollectionUIKit_h */
