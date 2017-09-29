@@ -15,40 +15,32 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 <img src="screenshots/sh_003.png" width="320"/>
 </p>
 
-### To implement collection view with the class ASIrregularCollectionViewController using Facebook AsyncDisplayKit
-```Swift
-class ASExampleCollectionViewController: ASIrregularCollectionViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.collectionViewLayout.columnSpacing = 1.4
-        self.collectionViewLayout.numberOfColumns = 3
-        self.collectionViewLayout.headerHeight = 0
-        self.collectionViewLayout.footerHeight = 0
-        
-        self.collectionView.allowsMultipleSelection = true
-        self.collectionView.alwaysBounceVertical = true
-        
-        self.collectionView.tuningParameters(for: .visibleOnly, rangeType: .fetchData)
-    }
-}
-```
-
 ### To implement collection view with the class IrregularCollectionViewController using UIKit
 ```Swift
-class ExampleCollectionViewController: IrregularCollectionViewController {
-    
+class DemoViewController: IrregularCollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.collectionViewLayout.columnSpacing = 1.4
-        self.collectionViewLayout.numberOfColumns = 3
-        self.collectionViewLayout.headerHeight = 0
-        self.collectionViewLayout.footerHeight = 0
-        
-        self.collectionView.allowsMultipleSelection = true
-        self.collectionView.alwaysBounceVertical = true
+        collectionViewLayout.columnSpacing = 1
+        collectionViewLayout.numberOfColumns = 3
+        collectionViewLayout.sectionInset = UIEdgeInsetsMake(1, 1, 1, 1)
+        collectionView.register(SampleViewCell.self, forCellWithReuseIdentifier: "SampleViewCell")
+    }
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return contents.count
+    }
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: "SampleViewCell", for: indexPath)
+    }
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        (cell as? SampleViewCell)?.content = contents[indexPath.item]
+    }
+    override func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, originalItemSizeAt indexPath: IndexPath) -> CGSize {
+        let content = contents[indexPath.item]
+        return CGSize(width: CGFloat(content.width), height: CGFloat(content.height))
     }
 }
 ```
