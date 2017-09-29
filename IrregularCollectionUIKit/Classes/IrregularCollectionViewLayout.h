@@ -1,13 +1,12 @@
 //
 //  IrregularCollectionViewLayout.h
-//  Pods
+//  IrregularCollectionUIKit
 //
 //  Created by pisces on 9/18/16.
 //
 //
 
 #import <UIKit/UIKit.h>
-#import <AsyncDisplayKit/AsyncDisplayKit.h>
 
 @class IrregularLayoutAttributesManager;
 @protocol IrregularCollectionViewLayoutDelegate;
@@ -22,18 +21,17 @@
 @property (nonatomic) UIEdgeInsets sectionInset;
 @property (nonnull, readonly) IrregularLayoutAttributesManager *attributesManager;
 - (instancetype _Nonnull)initWithDelegate:(id<IrregularCollectionViewLayoutDelegate> _Nonnull)delegate;
+- (IrregularLayoutAttributesManager * _Nonnull)createAttributesManager;
 - (CGFloat)columnWidthForSection:(NSUInteger)section;
 - (CGSize)headerSizeForSection:(NSInteger)section;
 - (CGSize)footerSizeForSection:(NSInteger)section;
+- (CGSize)itemSizeAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (void)prepareLayout;
 - (CGFloat)widthForSection:(NSUInteger)section;
 @end
 
-@protocol IrregularCollectionViewLayoutDelegate <ASCollectionViewDelegate>
+@protocol IrregularCollectionViewLayoutDelegate
 - (CGSize)collectionView:(UICollectionView * _Nonnull)collectionView layout:(UICollectionViewLayout * _Nonnull)collectionViewLayout originalItemSizeAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-@end
-
-@interface IrregularCollectionViewLayoutInspector : NSObject <ASCollectionViewLayoutInspecting>
-- (void)preapareLayoutWithCollectionView:(ASCollectionView * _Nonnull)colllectionView;
 @end
 
 @protocol IrregularSizeObject <NSObject>

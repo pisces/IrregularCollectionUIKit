@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		231D912E1D90CEA600E913FE /* ChannelCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D91191D90CEA600E913FE /* ChannelCollectionViewController.swift */; };
-		231D91301D90CEA600E913FE /* ChannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 231D911B1D90CEA600E913FE /* ChannelView.xib */; };
-		231D91311D90CEA600E913FE /* ChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D911C1D90CEA600E913FE /* ChannelViewController.swift */; };
 		231D91321D90CEA600E913FE /* DemoAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 231D911E1D90CEA600E913FE /* DemoAppDelegate.m */; };
 		231D91331D90CEA600E913FE /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231D911F1D90CEA600E913FE /* DemoViewController.swift */; };
 		231D91341D90CEA600E913FE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 231D91201D90CEA600E913FE /* Images.xcassets */; };
@@ -55,9 +52,6 @@
 		09E580333797462ED0A221B9 /* Pods-IrregularCollectionUIKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrregularCollectionUIKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IrregularCollectionUIKit_Tests/Pods-IrregularCollectionUIKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		1A1EBD36F9AF24BAD13639CB /* Pods-IrregularCollectionUIKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IrregularCollectionUIKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-IrregularCollectionUIKit_Example/Pods-IrregularCollectionUIKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		22AD11D3C79A266782377DFA /* libPods-IrregularCollectionUIKit_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-IrregularCollectionUIKit_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		231D91191D90CEA600E913FE /* ChannelCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChannelCollectionViewController.swift; path = IrregularCollectionUIKit/ChannelCollectionViewController.swift; sourceTree = SOURCE_ROOT; };
-		231D911B1D90CEA600E913FE /* ChannelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ChannelView.xib; path = IrregularCollectionUIKit/ChannelView.xib; sourceTree = SOURCE_ROOT; };
-		231D911C1D90CEA600E913FE /* ChannelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChannelViewController.swift; path = IrregularCollectionUIKit/ChannelViewController.swift; sourceTree = SOURCE_ROOT; };
 		231D911D1D90CEA600E913FE /* DemoAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DemoAppDelegate.h; path = IrregularCollectionUIKit/DemoAppDelegate.h; sourceTree = SOURCE_ROOT; };
 		231D911E1D90CEA600E913FE /* DemoAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DemoAppDelegate.m; path = IrregularCollectionUIKit/DemoAppDelegate.m; sourceTree = SOURCE_ROOT; };
 		231D911F1D90CEA600E913FE /* DemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DemoViewController.swift; path = IrregularCollectionUIKit/DemoViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -195,9 +189,6 @@
 			children = (
 				236759D21D9116190006C75B /* Resources */,
 				231D91201D90CEA600E913FE /* Images.xcassets */,
-				231D91191D90CEA600E913FE /* ChannelCollectionViewController.swift */,
-				231D911B1D90CEA600E913FE /* ChannelView.xib */,
-				231D911C1D90CEA600E913FE /* ChannelViewController.swift */,
 				231D911D1D90CEA600E913FE /* DemoAppDelegate.h */,
 				231D911E1D90CEA600E913FE /* DemoAppDelegate.m */,
 				231D911F1D90CEA600E913FE /* DemoViewController.swift */,
@@ -322,6 +313,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Steve Kim";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = Z2MHWT9TNN;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -355,7 +349,6 @@
 				231D91341D90CEA600E913FE /* Images.xcassets in Resources */,
 				236759E11D9116190006C75B /* 99763_62164_3159.jpg in Resources */,
 				236759DD1D9116190006C75B /* 201499971412727010.jpg in Resources */,
-				231D91301D90CEA600E913FE /* ChannelView.xib in Resources */,
 				236759E41D9116190006C75B /* img_20150502111148_a5d91d53.jpg in Resources */,
 				236759E21D9116190006C75B /* article_20150904-1.jpg in Resources */,
 				231D91361D90CEA600E913FE /* Launch Screen.storyboard in Resources */,
@@ -405,7 +398,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7AFF676B45964DC4AB34ECA5 /* [CP] Embed Pods Frameworks */ = {
@@ -435,7 +428,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		BCC2D6280E225C39A93BF3C3 /* [CP] Copy Pods Resources */ = {
@@ -475,10 +468,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				231D912E1D90CEA600E913FE /* ChannelCollectionViewController.swift in Sources */,
 				231D91391D90CEA600E913FE /* SampleContent.swift in Sources */,
 				231D91321D90CEA600E913FE /* DemoAppDelegate.m in Sources */,
-				231D91311D90CEA600E913FE /* ChannelViewController.swift in Sources */,
 				231D91401D90CEDA00E913FE /* main.m in Sources */,
 				231D91331D90CEA600E913FE /* DemoViewController.swift in Sources */,
 			);
@@ -555,7 +546,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -588,7 +579,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -601,9 +592,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = Z2MHWT9TNN;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IrregularCollectionUIKit/IrregularCollectionUIKit-Prefix.pch";
 				INFOPLIST_FILE = "IrregularCollectionUIKit/IrregularCollectionUIKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				ONLY_ACTIVE_ARCH = YES;
@@ -612,7 +605,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IrregularCollectionUIKit/IrregularCollectionUIKit_Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -623,9 +616,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				DEVELOPMENT_TEAM = Z2MHWT9TNN;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IrregularCollectionUIKit/IrregularCollectionUIKit-Prefix.pch";
 				INFOPLIST_FILE = "IrregularCollectionUIKit/IrregularCollectionUIKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MODULE_NAME = ExampleApp;
 				ONLY_ACTIVE_ARCH = NO;
@@ -633,7 +628,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "IrregularCollectionUIKit/IrregularCollectionUIKit_Example-Bridging-Header.h";
-				SWIFT_VERSION = 2.3;
+				SWIFT_VERSION = 3.0;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

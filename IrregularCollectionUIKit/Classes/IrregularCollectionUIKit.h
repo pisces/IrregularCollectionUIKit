@@ -9,8 +9,6 @@
 #ifndef IrregularCollectionUIKit_h
 #define IrregularCollectionUIKit_h
 
-#import "ASIrregularCollectionViewController.h"
 #import "IrregularCollectionViewController.h"
-#import "IrregularLayoutAttributesManager.h"
 
 #endif /* IrregularCollectionUIKit_h */

@@ -1,34 +1,18 @@
 //
 //  IrregularLayoutAttributesManager.m
-//  Pods
+//  IrregularCollectionUIKit
 //
 //  Created by pisces on 9/18/16.
 //
 //
 
 #import "IrregularLayoutAttributesManager.h"
-#import <AsyncDisplayKit/AsyncDisplayKit.h>
-
-@interface IrregularLayoutAttributesManager ()
-@property (nullable, nonatomic, readonly) ASCollectionView *asCollectionView;
-@property (nonatomic, readonly) NSInteger numberOfSections;
-@end
 
 @implementation IrregularLayoutAttributesManager
-{
-    __weak IrregularCollectionViewLayout *layout;
-}
 
 #pragma mark - Properties
 
-- (ASCollectionView *)asCollectionView {
-    return (ASCollectionView *) layout.collectionView;
-}
-
 - (NSInteger)numberOfSections {
-    if ([layout.collectionView isKindOfClass:[ASCollectionView class]]) {
-        return [self.asCollectionView.asyncDataSource numberOfSectionsInCollectionView:self.asCollectionView];
-    }
     return [layout.collectionView.dataSource numberOfSectionsInCollectionView:layout.collectionView];
 }
 
@@ -36,7 +20,6 @@
 
 - (instancetype)initWithLayout:(IrregularCollectionViewLayout *)_layout {
     self = [super init];
-    
     if (self) {
         layout = _layout;
         _allItemAttributes = [NSMutableArray array];
@@ -46,15 +29,17 @@
         _sectionItemAttributes = [NSMutableArray array];
         _sectionItemFrames = [NSMutableArray array];
     }
-    
     return self;
 }
 
 #pragma mark - Public methods
 
+- (NSInteger)numberOfItemsInSection:(NSInteger)section {
+    return [layout.collectionView.dataSource collectionView:layout.collectionView numberOfItemsInSection:section];
+}
+
 - (void)prepareAttributes {
     NSInteger numberOfSections = layout.collectionView.numberOfSections;
-    
     if (numberOfSections > 0) {
         [self clear];
         
@@ -228,13 +213,6 @@
             yOffset += columnHeight + layout.columnSpacing;
         }
     }
-}
-
-- (NSInteger)numberOfItemsInSection:(NSInteger)section {
-    if ([layout.collectionView isKindOfClass:[ASCollectionView class]]) {
-        return [self.asCollectionView.asyncDataSource collectionView:self.asCollectionView numberOfItemsInSection:section];
-    }
-    return [layout.collectionView.dataSource collectionView:layout.collectionView numberOfItemsInSection:section];
 }
 
 @end

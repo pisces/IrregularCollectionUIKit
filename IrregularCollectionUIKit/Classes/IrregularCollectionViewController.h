@@ -13,6 +13,4 @@
 @interface IrregularCollectionViewController : PropertyManagedViewController <UICollectionViewDataSource, UICollectionViewDelegate, IrregularCollectionViewLayoutDelegate>
 @property (nonnull, nonatomic, readonly) IrregularCollectionViewLayout *collectionViewLayout;
 @property (nonnull, nonatomic) IBOutlet UICollectionView *collectionView;
-- (void)performBatchUpdates:(void (^_Nullable)())updates completion:(void (^_Nullable)(BOOL))completion;
-- (void)reloadData;
 @end
