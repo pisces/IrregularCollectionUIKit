@@ -10,7 +10,7 @@
 
 @implementation IrregularCollectionViewController
 
-#pragma mark - Overridden: UIViewController
+#pragma mark - Overridden: PropertyManagedViewController
 
 - (void)dealloc {
     _collectionView.dataSource = nil;
