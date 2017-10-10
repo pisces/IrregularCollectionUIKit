@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		23F40AF71F7E8F0A000C605B /* IrregularCollectionUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AEE1F7E8F0A000C605B /* IrregularCollectionUIKit.h */; };
-		23F40AF81F7E8F0A000C605B /* IrregularCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AEF1F7E8F0A000C605B /* IrregularCollectionViewController.h */; };
+		23F40AF71F7E8F0A000C605B /* IrregularCollectionUIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AEE1F7E8F0A000C605B /* IrregularCollectionUIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		23F40AF81F7E8F0A000C605B /* IrregularCollectionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AEF1F7E8F0A000C605B /* IrregularCollectionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23F40AF91F7E8F0A000C605B /* IrregularCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F40AF01F7E8F0A000C605B /* IrregularCollectionViewController.m */; };
-		23F40AFA1F7E8F0A000C605B /* IrregularCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AF11F7E8F0A000C605B /* IrregularCollectionViewLayout.h */; };
+		23F40AFA1F7E8F0A000C605B /* IrregularCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AF11F7E8F0A000C605B /* IrregularCollectionViewLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23F40AFB1F7E8F0A000C605B /* IrregularCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F40AF21F7E8F0A000C605B /* IrregularCollectionViewLayout.m */; };
-		23F40AFC1F7E8F0A000C605B /* IrregularLayoutAttributesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AF31F7E8F0A000C605B /* IrregularLayoutAttributesManager.h */; };
+		23F40AFC1F7E8F0A000C605B /* IrregularLayoutAttributesManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AF31F7E8F0A000C605B /* IrregularLayoutAttributesManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23F40AFD1F7E8F0A000C605B /* IrregularLayoutAttributesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F40AF41F7E8F0A000C605B /* IrregularLayoutAttributesManager.m */; };
-		23F40AFE1F7E8F0A000C605B /* PropertyManagedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AF51F7E8F0A000C605B /* PropertyManagedViewController.h */; };
+		23F40AFE1F7E8F0A000C605B /* PropertyManagedViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 23F40AF51F7E8F0A000C605B /* PropertyManagedViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		23F40AFF1F7E8F0A000C605B /* PropertyManagedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 23F40AF61F7E8F0A000C605B /* PropertyManagedViewController.m */; };
 /* End PBXBuildFile section */
 
