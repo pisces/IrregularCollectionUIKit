@@ -85,7 +85,7 @@ $ brew install carthage
 To integrate Alamofire into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "pisces/IrregularCollectionUIKit" ~> 2.0.0
+github "pisces/IrregularCollectionUIKit" ~> 2.0.1
 ```
 
 Run `carthage update` to build the framework and drag the built `IrregularCollectionUIKit.framework` into your Xcode project.
